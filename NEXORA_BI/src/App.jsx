@@ -1,22 +1,16 @@
 import { useState } from 'react'
 import Logo from '/logo.png'
 import './App.css'
+import LoginForm from './page/login' 
 
 function App() {
  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={Logo} className="logo" alt=" logo" />
-        </a>
-      
-      </div>
 
-      <p className="read-the-docs">
-        wejhek f taswira 😂
-      </p>
+      
+      <LoginForm/>
     </>
   )
 }
