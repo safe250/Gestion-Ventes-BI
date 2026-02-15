@@ -1,7 +1,5 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
 import Logo from '/logo.png'
-import { setupCounter } from './counter.ts'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
