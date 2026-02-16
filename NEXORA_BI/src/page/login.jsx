@@ -3,6 +3,8 @@ import { Input, Button, Checkbox, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "../style/login.css";
 
+const { Title } = Typography;
+
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,16 +18,17 @@ export default function LoginForm() {
   return (
     <div className="login-page">
       
-      {/* Partie gauche */}
+      {/* LEFT */}
       <div className="login-left">
-        <img src="/logo.png" alt=" Logo" className="logo" />
+        <img src="/logo.png" alt="Logo" className="logo" />
         <h2>✓ Ajoutez et gérez facilement vos services</h2>
       </div>
 
-      {/* Partie droite */}
+      {/* RIGHT */}
       <div className="login-right">
         <div className="login-card">
           <Title level={3}>Se connecter</Title>
+
           <form onSubmit={handleSubmit} className="login-form">
             <label>Email</label>
             <Input
@@ -49,20 +52,26 @@ export default function LoginForm() {
             <div className="remember-forgot">
               <Checkbox
                 checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
+                onChange={(e) => setRememberMe(e.target.checked)}
               >
                 Se souvenir de moi
               </Checkbox>
-              <a href="#">Mot de passe oublié</a>
+
+              <a href="#">Mot de passe oublié ?</a>
             </div>
 
-            <Button type="primary" htmlType="submit" block size="large">
+            <Button
+              type="primary"
+              htmlType="submit"
+              block
+              size="large"
+            >
               Se connecter
             </Button>
           </form>
 
           <p className="register-text">
-            Ou <a href="#">S'inscrire maintenant!</a>
+            Ou <a href="#">S'inscrire maintenant !</a>
           </p>
         </div>
       </div>
