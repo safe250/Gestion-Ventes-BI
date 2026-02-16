@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 /* Reset */
+=======
+
+/* Styles de base pour assurer que tout fonctionne */
+>>>>>>> 1e0704b610ab10eb445ad0047c37d4a5d0e81fae
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 .login-page {
