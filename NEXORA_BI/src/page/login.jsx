@@ -1,70 +1,95 @@
 import React, { useState } from "react";
-import { Input, Button, Checkbox, Typography } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "../style/login.css";
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ email, password, rememberMe });
+    console.log({ username, password });
   };
 
   return (
     <div className="login-page">
-      
       {/* Partie gauche */}
       <div className="login-left">
-        <img src="/logo.png" alt=" Logo" className="logo" />
-        <h2>✓ Ajoutez et gérez facilement vos services</h2>
+        <div className="left-content">
+          <div className="logo-section">
+            <img src="/logo.svg" alt="Logo" className="logo" />
+          </div>
+          
+          <h1 className="main-title">Gérez votre entreprise avec :</h1>
+          
+          <div className="features-list">
+            <div className="feature-item">
+              <div className="feature-icon">✓</div>
+              <div className="feature-content">
+                <h3>Outil tout-en-un</h3>
+                <p>Une solution complète pour gérer votre entreprise</p>
+              </div>
+            </div>
+            
+            <div className="feature-item">
+              <div className="feature-icon">✓</div>
+              <div className="feature-content">
+                <h3>Ajoutez et gérez facilement vos services</h3>
+                <p>Il rassemble vos clients de facturation et vos leads</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Partie droite */}
       <div className="login-right">
-        <div className="login-card">
-          <Title level={3}>Se connecter</Title>
-          <form onSubmit={handleSubmit} className="login-form">
-            <label>Email</label>
-            <Input
-              prefix={<UserOutlined />}
-              placeholder="Email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+        <form className="form_main" onSubmit={handleSubmit}>
+          <p className="heading">Se connecter</p>
+          
+          <div className="inputContainer">
+            <svg viewBox="0 0 16 16" fill="#2e2e2e" height="16" width="16" xmlns="http://www.w3.org/2000/svg" className="inputIcon">
+              <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+            </svg>
+            <input 
+              placeholder="Email" 
+              id="username" 
+              className="inputField" 
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
-
-            <label>Mot de passe</label>
-            <Input.Password
-              prefix={<LockOutlined />}
-              placeholder="Mot de passe"
+          </div>
+          
+          <div className="inputContainer">
+            <svg viewBox="0 0 16 16" fill="#2e2e2e" height="16" width="16" xmlns="http://www.w3.org/2000/svg" className="inputIcon">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            </svg>
+            <input 
+              placeholder="Mot de passe" 
+              id="password" 
+              className="inputField" 
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-
-            <div className="remember-forgot">
-              <Checkbox
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
-              >
-                Se souvenir de moi
-              </Checkbox>
-              <a href="#">Mot de passe oublié</a>
-            </div>
-
-            <Button type="primary" htmlType="submit" block size="large">
-              Se connecter
-            </Button>
-          </form>
-
-          <p className="register-text">
-            Ou <a href="#">S'inscrire maintenant!</a>
-          </p>
-        </div>
+          </div>
+          
+          <div className="remember-forgot">
+            <label className="checkbox-label">
+              <input type="checkbox" />
+              <span>Se souvenir de moi</span>
+            </label>
+            <a href="#" className="forgot-link">Mot de passe oublié</a>
+          </div>
+                    
+          <button id="button" type="submit">Se connecter</button>
+          
+          <div className="signupContainer">
+            <p>Ou <a href="#">S'inscrire maintenant!</a></p>
+          </div>
+        </form>
       </div>
     </div>
   );
